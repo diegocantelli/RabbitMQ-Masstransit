@@ -1,5 +1,6 @@
 using System;
 using AutoMapper;
+using MassTransit;
 using MassTransitTutorial.Domain;
 using MassTransitTutorial.Mappings;
 using MassTransitTutorial.Persistence;
@@ -77,7 +78,10 @@ namespace MassTransiTutorial.Api
             #endregion
 
             #region MassTransit
-
+            services.AddMassTransit(bus =>
+            {
+                bus.UsingRabbitMq();
+            });
             #endregion
         }
 
