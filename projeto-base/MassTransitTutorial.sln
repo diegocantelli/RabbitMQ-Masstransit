@@ -1,19 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitTutorial.Api", "Api\MassTransitTutorial.Api.csproj", "{F1D1827C-7F4F-429E-96FF-D98D78F990D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitTutorial.Api", "Api\MassTransitTutorial.Api.csproj", "{F1D1827C-7F4F-429E-96FF-D98D78F990D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitTutorial.Application", "Application\MassTransitTutorial.Application.csproj", "{A223DBBD-4580-40F2-962F-B738D3166EFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitTutorial.Application", "Application\MassTransitTutorial.Application.csproj", "{A223DBBD-4580-40F2-962F-B738D3166EFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitTutorial.Domain", "Domain\MassTransitTutorial.Domain.csproj", "{2C41E645-5E54-4362-A42F-1B46E122FAF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitTutorial.Domain", "Domain\MassTransitTutorial.Domain.csproj", "{2C41E645-5E54-4362-A42F-1B46E122FAF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitTutorial.Persistence", "Infrastructure\Persistence\MassTransitTutorial.Persistence.csproj", "{6D953C62-F92D-415C-9EC6-567E048ECD3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitTutorial.Persistence", "Infrastructure\Persistence\MassTransitTutorial.Persistence.csproj", "{6D953C62-F92D-415C-9EC6-567E048ECD3B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{77B670AE-594D-4DA4-891D-59EE67F04DB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitTutorial.Mappings", "Infrastructure\Mappings\MassTransitTutorial.Mappings.csproj", "{689C5490-F4A6-4C61-97A8-2D9977275B1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitTutorial.Mappings", "Infrastructure\Mappings\MassTransitTutorial.Mappings.csproj", "{689C5490-F4A6-4C61-97A8-2D9977275B1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{51024352-D235-4FB8-9539-A8FE260B0DEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasstransitTutorial.Consumers", "MasstransitTutorial.Consumers\MasstransitTutorial.Consumers.csproj", "{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F1D1827C-7F4F-429E-96FF-D98D78F990D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -88,8 +89,27 @@ Global
 		{689C5490-F4A6-4C61-97A8-2D9977275B1C}.Release|x64.Build.0 = Release|Any CPU
 		{689C5490-F4A6-4C61-97A8-2D9977275B1C}.Release|x86.ActiveCfg = Release|Any CPU
 		{689C5490-F4A6-4C61-97A8-2D9977275B1C}.Release|x86.Build.0 = Release|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Debug|x64.Build.0 = Debug|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Debug|x86.Build.0 = Debug|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Release|x64.ActiveCfg = Release|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Release|x64.Build.0 = Release|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{689C5490-F4A6-4C61-97A8-2D9977275B1C} = {77B670AE-594D-4DA4-891D-59EE67F04DB3}
+		{6BD39EBF-D40A-480B-A2D0-13E12D1612E1} = {51024352-D235-4FB8-9539-A8FE260B0DEE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2BD5C37-7623-4289-8EBB-D9197BBD7D69}
 	EndGlobalSection
 EndGlobal
