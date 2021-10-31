@@ -1,15 +1,15 @@
 using System;
 
-namespace MassTransitTutorial.Domain
+namespace MassTransitTutorial.Domain.Customer
 {
-    public class Customer : CustomerBase
+    public class CustomerEntity : CustomerBase
     {
-        public static readonly Customer Empty = new Customer();
+        public static readonly CustomerEntity Empty = new CustomerEntity();
         public DateTime? UpdatedAt { get; private set; }
 
-        private Customer() : base() { }
+        private CustomerEntity() : base() { }
 
-        public Customer(CustomerId id, string name, DateTime birthDate, Type type, DateTime createdAt, DateTime? updatedAt)
+        public CustomerEntity(CustomerId id, string name, DateTime birthDate, Type type, DateTime createdAt, DateTime? updatedAt)
             : base(name, birthDate, type)
         {
             CustomerId = id;

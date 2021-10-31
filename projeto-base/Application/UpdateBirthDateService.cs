@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using MassTransitTutorial.Domain;
+using MassTransitTutorial.Domain.Customer;
 
 namespace MassTransiTutorial.Application
 {
@@ -19,7 +20,7 @@ namespace MassTransiTutorial.Application
         {
             var customer = await _repo.WithId(CustomerId.FromValue(newDate.CustomerId));
 
-            if (customer != Customer.Empty)
+            if (customer != CustomerEntity.Empty)
             {
                 customer.ChangeBirthDate(newDate.NewBirthDate);
                 await _repo.ChangeBirthDate(customer);

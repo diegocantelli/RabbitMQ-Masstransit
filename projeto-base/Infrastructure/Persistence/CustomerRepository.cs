@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using AutoMapper;
 using MassTransitTutorial.Domain;
+using MassTransitTutorial.Domain.Customer;
 using Microsoft.EntityFrameworkCore;
 
 namespace MassTransitTutorial.Persistence
@@ -17,16 +18,16 @@ namespace MassTransitTutorial.Persistence
             _mapper = mapper;
         }
 
-        public async Task<Customer> CreateCustomer(NewCustomer customer)
+        public async Task<CustomerEntity> CreateCustomer(NewCustomer customer)
         {
             var entity = _mapper.Map<TbCustomer>(customer);
             _context.Customers.Add(entity);
             await _context.SaveChangesAsync();
 
-            return _mapper.Map<Customer>(entity);
+            return _mapper.Map<CustomerEntity>(entity);
         }
 
-        public async Task ChangeBirthDate(Customer customer)
+        public async Task ChangeBirthDate(CustomerEntity customer)
         {
             var entity = await _context.Customers.SingleOrDefaultAsync(c => c.Id == Guid.Parse(customer.CustomerId.Id));
 
@@ -39,10 +40,10 @@ namespace MassTransitTutorial.Persistence
             }
         }
 
-        public async Task<Customer> WithId(CustomerId customerId)
+        public async Task<CustomerEntity> WithId(CustomerId customerId)
         {
             var entity = await _context.Customers.SingleOrDefaultAsync(c => c.Id == Guid.Parse(customerId.Id));
-            return _mapper.Map<Customer>(entity) ?? Customer.Empty;
+            return _mapper.Map<CustomerEntity>(entity) ?? CustomerEntity.Empty;
         }
     }
 }

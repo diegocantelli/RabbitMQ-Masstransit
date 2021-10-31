@@ -2,6 +2,7 @@
 using AutoMapper;
 using MassTransitTutorial.Persistence;
 using MassTransitTutorial.Domain;
+using MassTransitTutorial.Domain.Customer;
 
 namespace MassTransitTutorial.Mappings
 {
@@ -13,13 +14,13 @@ namespace MassTransitTutorial.Mappings
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.CustomerId.Id))
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => (int)src.Type));
 
-            CreateMap<Customer, TbCustomer>()
+            CreateMap<CustomerEntity, TbCustomer>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.CustomerId.Id))
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => (int)src.Type))
                 .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => src.UpdatedAt))
                 .ReverseMap()
                 .ConstructUsing(
-                    src => new Customer(
+                    src => new CustomerEntity(
                         CustomerId.FromValue(src.Id),
                         src.Name,
                         src.BirthDate,
@@ -27,7 +28,7 @@ namespace MassTransitTutorial.Mappings
                         src.CreatedAt,
                         src.UpdatedAt));
 
-            CreateMap<Customer, CustomerDto>();
+            CreateMap<CustomerEntity, CustomerDto>();
 
             CreateMap<NewCustomerDto, NewCustomer>()
                 .ConstructUsing(src => new NewCustomer(

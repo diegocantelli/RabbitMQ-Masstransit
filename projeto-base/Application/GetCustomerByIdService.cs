@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using AutoMapper;
 using MassTransitTutorial.Domain;
+using MassTransitTutorial.Domain.Customer;
 
 namespace MassTransiTutorial.Application
 {
@@ -20,7 +21,7 @@ namespace MassTransiTutorial.Application
         {
             var customer = await _repo.WithId(CustomerId.FromValue(customerId));
 
-            if (customer != Customer.Empty)
+            if (customer != CustomerEntity.Empty)
             {
                 return ServiceResult<CustomerDto>.Success(_mapper.Map<CustomerDto>(customer));
             }
