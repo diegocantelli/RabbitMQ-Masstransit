@@ -10,7 +10,7 @@ namespace MasstransitTutorial.Consumers
             var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
                 cfg.ReceiveEndpoint("");
-            })
+            });
         }
     }
 }
