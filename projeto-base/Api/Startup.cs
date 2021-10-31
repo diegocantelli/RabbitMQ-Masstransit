@@ -80,8 +80,14 @@ namespace MassTransiTutorial.Api
             #region MassTransit
             services.AddMassTransit(bus =>
             {
-                bus.UsingRabbitMq();
+                bus.UsingRabbitMq((ctx, busConfigurator) =>
+                {
+                    busConfigurator.Host(Configuration.GetConnectionString("RabbitMQ"));
+                });
             });
+
+            // inicia um processo em background, o que torna possível escrever e escutar alterações nas filas
+            services.AddMassTransitHostedService();
             #endregion
         }
 
