@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using MassTransitTutorial.Domain.Customer.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,9 @@ namespace MasstransitTutorial.Consumers
     {
         public Task Consume(ConsumeContext<CustomerCreatedEvent> context)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Novo cliente cadastrado: ${context.Message.Name}");
+
+            return Task.CompletedTask;
         }
     }
 }

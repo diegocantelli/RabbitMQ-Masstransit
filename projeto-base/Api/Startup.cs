@@ -82,7 +82,11 @@ namespace MassTransiTutorial.Api
             {
                 bus.UsingRabbitMq((ctx, busConfigurator) =>
                 {
-                    busConfigurator.Host(Configuration.GetConnectionString("RabbitMQ"));
+                    busConfigurator.Host("localhost", "/", h => 
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
                 });
             });
 

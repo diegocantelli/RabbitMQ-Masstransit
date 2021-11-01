@@ -26,7 +26,7 @@ namespace MassTransiTutorial.Application
                 var newCustomer = _mapper.Map<NewCustomer>(data);
                 var createdCustomer = await _repo.CreateCustomer(newCustomer);
 
-                await _publisher.Publish<CustomerCreatedEvent>(new
+                await _publisher.Publish<CustomerCreatedEvent>(new 
                 {
                     CustomerId = createdCustomer.CustomerId.Id,
                     Name = createdCustomer.Name,

@@ -9,8 +9,16 @@ namespace MasstransitTutorial.Consumers
         {
             var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
-                cfg.ReceiveEndpoint("");
+                cfg.ReceiveEndpoint("greet-new-costumers", cfg => 
+                {
+                    // aqui deve ser passada a classe que implementa a interface IConsumer do Masstransit   
+                    cfg.Consumer<CustomerCreatedConsumer>();
+                });
             });
+
+            busControl.Start();
+
+            while (true) ;
         }
     }
 }

@@ -6,10 +6,10 @@ namespace MassTransitTutorial.Domain.Customer.Events
 {
     public interface CustomerCreatedEvent
     {
-        string CustomerId { get; }
-        string  Name{ get; }
-        DateTime Birthdate { get; }
-        string Type { get; }
-        DateTime CreatedAt { get; }
+        string CustomerId { get; set; }
+        string  Name{ get; set; }
+        DateTime Birthdate { get; set; }
+        string Type { get; set; }
+        DateTime CreatedAt { get; set; }
     }
 }
