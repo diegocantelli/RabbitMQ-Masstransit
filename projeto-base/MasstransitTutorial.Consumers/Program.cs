@@ -14,10 +14,19 @@ namespace MasstransitTutorial.Consumers
                     // aqui deve ser passada a classe que implementa a interface IConsumer do Masstransit   
                     cfg.Consumer<CustomerCreatedConsumer>();
                 });
+
+                cfg.ReceiveEndpoint("add-to-maillist", cfg =>
+                {
+                    // aqui deve ser passada a classe que implementa a interface IConsumer do Masstransit   
+                    cfg.Consumer<AddToMaillistConsumer>();
+
+                    cfg.PrefetchCount = 1;
+                });
             });
 
             busControl.Start();
 
+            Console.WriteLine("Waiting for messages...");
             while (true) ;
         }
     }
